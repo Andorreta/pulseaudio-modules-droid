@@ -91,6 +91,7 @@ uint32_t conversion_table_format[][2] = {
 };
 
 uint32_t conversion_table_default_audio_source[][2] = {
+#if defined(DROID_DEVICE_HAMMERHEAD) || defined(DROID_DEVICE_ARMANI) || defined(DROID_DEVICE_MAKO)
     { AUDIO_DEVICE_IN_COMMUNICATION,                AUDIO_SOURCE_MIC },
     { AUDIO_DEVICE_IN_AMBIENT,                      AUDIO_SOURCE_MIC },
     { AUDIO_DEVICE_IN_BUILTIN_MIC,                  AUDIO_SOURCE_MIC },
@@ -100,7 +101,6 @@ uint32_t conversion_table_default_audio_source[][2] = {
     { AUDIO_DEVICE_IN_VOICE_CALL,                   AUDIO_SOURCE_VOICE_CALL },
     { AUDIO_DEVICE_IN_BACK_MIC,                     AUDIO_SOURCE_MIC },
     { AUDIO_DEVICE_IN_REMOTE_SUBMIX,                AUDIO_SOURCE_REMOTE_SUBMIX },
-#ifdef QCOM_HARDWARE
     { AUDIO_DEVICE_IN_FM_RX,                        AUDIO_SOURCE_FM_RX },
     { AUDIO_DEVICE_IN_FM_RX_A2DP,                   AUDIO_SOURCE_FM_RX_A2DP },
 #endif
@@ -262,7 +262,6 @@ struct string_conversion string_conversion_table_input_device[] = {
     STRING_ENTRY(AUDIO_DEVICE_IN_ALL_USB),
     { 0, NULL }
 };
-#endif
 
 struct string_conversion string_conversion_table_input_device_fancy[] = {
     { AUDIO_DEVICE_IN_COMMUNICATION,            "input-communication" },
@@ -297,6 +296,7 @@ struct string_conversion string_conversion_table_input_device_fancy[] = {
     { AUDIO_DEVICE_IN_DEFAULT,                  "input-default" },
     { 0, NULL }
 };
+#endif
 
 struct string_conversion string_conversion_table_audio_source_fancy[] = {
     { AUDIO_SOURCE_DEFAULT,                         "default" },
